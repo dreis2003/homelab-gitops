@@ -13,6 +13,8 @@ spec:
       labels:
         app: springboot-demo
     spec:
+      imagePullSecrets:
+        - name: ghcr-secret
       containers:
         - name: springboot-demo
           image: ghcr.io/dreis2003/springboot-demo:1.0
