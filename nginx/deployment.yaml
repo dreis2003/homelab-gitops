@@ -6,7 +6,7 @@ metadata:
   namespace: dev
 
 spec:
-  replicas: 5
+  replicas: 8
 
   selector:
     matchLabels:
