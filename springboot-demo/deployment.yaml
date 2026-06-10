@@ -17,6 +17,6 @@ spec:
         - name: ghcr-secret
       containers:
         - name: springboot-demo
-          image: ghcr.io/dreis2003/springboot-demo:1.0
+          image: ghcr.io/dreis2003/springboot-demo:1.1
           ports:
             - containerPort: 8080
