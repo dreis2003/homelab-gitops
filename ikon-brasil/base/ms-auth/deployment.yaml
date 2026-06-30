@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-auth
+  labels:
+    app: ms-auth
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ms-auth
+  template:
+    metadata:
+      labels:
+        app: ms-auth
+    spec:
+      containers:
+        - name: ms-auth
+          image: ghcr.io/dreis2003/ms-auth:hml-latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: hml
+            - name: DB_URL
+              valueFrom:
+                secretKeyRef:
+                  name: ms-auth-secrets
+                  key: DB_URL
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: ms-auth-secrets
+                  key: DB_USERNAME
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: ms-auth-secrets
+                  key: DB_PASSWORD
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: ms-auth-secrets
+                  key: JWT_SECRET
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"

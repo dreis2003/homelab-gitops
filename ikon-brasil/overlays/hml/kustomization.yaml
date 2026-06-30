@@ -1,0 +1,5 @@
+namespace: ikon-hml
+
+resources:
+  - namespace.yaml
+  - ../../base/ms-auth
