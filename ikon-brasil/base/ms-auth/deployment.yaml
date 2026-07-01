@@ -22,34 +22,34 @@ spec:
             - containerPort: 8080
           env:
             - name: SPRING_PROFILES_ACTIVE
-            value: hml
-        
-          - name: SERVER_PORT
-            value: "8080"
-        
-          - name: SPRING_DATASOURCE_URL
-            valueFrom:
-              secretKeyRef:
-                name: ms-auth-secrets
-                key: DB_URL
-        
-          - name: SPRING_DATASOURCE_USERNAME
-            valueFrom:
-              secretKeyRef:
-                name: ms-auth-secrets
-                key: DB_USERNAME
-        
-          - name: SPRING_DATASOURCE_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: ms-auth-secrets
-                key: DB_PASSWORD
-        
-          - name: JWT_SECRET
-            valueFrom:
-              secretKeyRef:
-                name: ms-auth-secrets
-                key: JWT_SECRET
+              value: hml
+          
+            - name: SERVER_PORT
+              value: "8080"
+          
+            - name: SPRING_DATASOURCE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: ms-auth-secrets
+                  key: DB_URL
+          
+            - name: SPRING_DATASOURCE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: ms-auth-secrets
+                  key: DB_USERNAME
+          
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: ms-auth-secrets
+                  key: DB_PASSWORD
+          
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: ms-auth-secrets
+                  key: JWT_SECRET
           resources:
             requests:
               cpu: "100m"
