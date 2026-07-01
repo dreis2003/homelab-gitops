@@ -6,6 +6,7 @@ resources:
   - ../../base/ms-cadastro-filiados
   - ../../base/bff-ikon-brasil
   - ../../base/ikon-brasil-web
+  - ../../base/ingress-prd
 
 images:
   - name: ghcr.io/dreis2003/ms-auth
