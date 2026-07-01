@@ -1,0 +1,53 @@
+namespace: ikon-prd
+
+resources:
+  - namespace.yaml
+  - ../../base/ms-auth
+  - ../../base/ms-cadastro-filiados
+  - ../../base/bff-ikon-brasil
+  - ../../base/ikon-brasil-web
+
+images:
+  - name: ghcr.io/dreis2003/ms-auth
+    newTag: prd-latest
+
+  - name: ghcr.io/dreis2003/ms-cadastro-filiados
+    newTag: prd-latest
+
+  - name: ghcr.io/dreis2003/bff-ikon-brasil
+    newTag: prd-latest
+
+  - name: ghcr.io/dreis2003/ikon-brasil-web
+    newTag: prd-latest
+
+patches:
+  - target:
+      kind: Deployment
+      name: ms-auth
+    patch: |-
+      - op: replace
+        path: /spec/template/spec/containers/0/env/0/value
+        value: "prd"
+
+  - target:
+      kind: Deployment
+      name: ms-cadastro-filiados
+    patch: |-
+      - op: replace
+        path: /spec/template/spec/containers/0/env/0/value
+        value: "prd"
+
+  - target:
+      kind: Deployment
+      name: bff-ikon-brasil
+    patch: |-
+      - op: replace
+        path: /spec/template/spec/containers/0/env/0/value
+        value: "prd"
+  - target:
+      kind: Deployment
+      name: bff-ikon-brasil
+    patch: |-
+      - op: replace
+        path: /spec/template/spec/containers/0/env/4/value
+        value: "http://localhost:4200,http://127.0.0.1:4200,https://gestao.ikon-br.com.br"
