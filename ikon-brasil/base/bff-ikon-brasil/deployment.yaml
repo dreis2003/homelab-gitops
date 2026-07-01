@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bff-ikon-brasil
+  labels:
+    app: bff-ikon-brasil
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bff-ikon-brasil
+  template:
+    metadata:
+      labels:
+        app: bff-ikon-brasil
+    spec:
+      containers:
+        - name: bff-ikon-brasil
+          image: ghcr.io/dreis2003/bff-ikon-brasil:hml-latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: "hml"
+
+            - name: SERVER_PORT
+              value: "8080"
+
+            - name: MS_AUTH_URL
+              value: "http://ms-auth:8080"
+
+            - name: MS_CADASTRO_FILIADOS_URL
+              value: "http://ms-cadastro-filiados:8080"
+
+            - name: CORS_ALLOWED_ORIGINS
+              value: "http://localhost:4200,http://127.0.0.1:4200"
+
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: bff-ikon-brasil-secrets
+                  key: JWT_SECRET
+
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
