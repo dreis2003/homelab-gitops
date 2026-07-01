@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ikon-brasil-web
+  labels:
+    app: ikon-brasil-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ikon-brasil-web
+  template:
+    metadata:
+      labels:
+        app: ikon-brasil-web
+    spec:
+      containers:
+        - name: ikon-brasil-web
+          image: ghcr.io/dreis2003/ikon-brasil-web:hml-latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "128Mi"
+            limits:
+              cpu: "300m"
+              memory: "256Mi"
