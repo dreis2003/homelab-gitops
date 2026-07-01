@@ -3,3 +3,4 @@ namespace: ikon-hml
 resources:
   - namespace.yaml
   - ../../base/ms-auth
+  - ../../base/ms-cadastro-filiados
