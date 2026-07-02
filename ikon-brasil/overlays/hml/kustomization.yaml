@@ -1,8 +1,14 @@
 namespace: ikon-hml
 
 resources:
-  - namespace.yaml
-  - ../../base/ms-auth
-  - ../../base/ms-cadastro-filiados
-  - ../../base/bff-ikon-brasil
-  - ../../base/ikon-brasil-web
+- namespace.yaml
+- ../../base/ms-auth
+- ../../base/ms-cadastro-filiados
+- ../../base/bff-ikon-brasil
+- ../../base/ikon-brasil-web
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+images:
+- name: ghcr.io/dreis2003/bff-ikon-brasil
+  newName: ghcr.io/dreis2003/bff-ikon-brasil
+  newTag: hml-b6b3e60589d3b5360ac233f58c8c0b7c58100a82
