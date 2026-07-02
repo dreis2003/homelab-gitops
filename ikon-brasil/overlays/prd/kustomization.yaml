@@ -18,7 +18,8 @@ images:
   newName: ghcr.io/dreis2003/ikon-brasil-web
   newTag: prd-8465585da1bff99e0993909b6a440b1633e6b14a
 - name: ghcr.io/dreis2003/ms-auth
-  newTag: prd-latest
+  newName: ghcr.io/dreis2003/ms-auth
+  newTag: prd-9abfa56b851551cf3803586dd1f82b1ed3155a8b
 - name: ghcr.io/dreis2003/ms-cadastro-filiados
   newTag: prd-latest
 
