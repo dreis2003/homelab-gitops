@@ -6,4 +6,3 @@ resources:
   - ../../base/ms-cadastro-filiados
   - ../../base/bff-ikon-brasil
   - ../../base/ikon-brasil-web
-  - ../../base/ingress-hml
