@@ -21,7 +21,8 @@ images:
   newName: ghcr.io/dreis2003/ms-auth
   newTag: prd-9abfa56b851551cf3803586dd1f82b1ed3155a8b
 - name: ghcr.io/dreis2003/ms-cadastro-filiados
-  newTag: prd-latest
+  newName: ghcr.io/dreis2003/ms-cadastro-filiados
+  newTag: prd-a5aae98cfb6d6212729525e7ec4cc487d08bc56a
 
 
 
