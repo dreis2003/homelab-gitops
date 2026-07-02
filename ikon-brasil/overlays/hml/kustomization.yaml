@@ -12,6 +12,9 @@ images:
 - name: ghcr.io/dreis2003/bff-ikon-brasil
   newName: ghcr.io/dreis2003/bff-ikon-brasil
   newTag: hml-b6b3e60589d3b5360ac233f58c8c0b7c58100a82
+- name: ghcr.io/dreis2003/ikon-brasil-web
+  newName: ghcr.io/dreis2003/ikon-brasil-web
+  newTag: hml-2b5ae3819a2cc621744925a829b4e91e3a1b14c6
 - name: ghcr.io/dreis2003/ms-auth
   newName: ghcr.io/dreis2003/ms-auth
   newTag: hml-51dbc89b09c3e5014d6c76a52c1e9c2856613f44
