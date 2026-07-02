@@ -13,7 +13,7 @@ resources:
 images:
 - name: ghcr.io/dreis2003/bff-ikon-brasil
   newName: ghcr.io/dreis2003/bff-ikon-brasil
-  newTag: prd-6b878332498b71efbb9fe56cf7391ebb02a576a6
+  newTag: prd-f5ba446882ad001405cf6f784cc270c6ed3c341e
 - name: ghcr.io/dreis2003/ikon-brasil-web
   newTag: prd-latest
 - name: ghcr.io/dreis2003/ms-auth
