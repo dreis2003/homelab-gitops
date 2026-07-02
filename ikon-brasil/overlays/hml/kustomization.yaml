@@ -12,3 +12,6 @@ images:
 - name: ghcr.io/dreis2003/bff-ikon-brasil
   newName: ghcr.io/dreis2003/bff-ikon-brasil
   newTag: hml-b6b3e60589d3b5360ac233f58c8c0b7c58100a82
+- name: ghcr.io/dreis2003/ms-cadastro-filiados
+  newName: ghcr.io/dreis2003/ms-cadastro-filiados
+  newTag: hml-9a3065d0740add8253aa32992f5f770e2920a2f8
