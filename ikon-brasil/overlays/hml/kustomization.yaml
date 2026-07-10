@@ -14,7 +14,7 @@ images:
   newTag: hml-b6b3e60589d3b5360ac233f58c8c0b7c58100a82
 - name: ghcr.io/dreis2003/ikon-brasil-web
   newName: ghcr.io/dreis2003/ikon-brasil-web
-  newTag: hml-76eadf8753bb65244904f95bcb36484b25edbd37
+  newTag: hml-ebef7c6f5a4d74a70e761cf792493eca5a34af72
 - name: ghcr.io/dreis2003/ms-auth
   newName: ghcr.io/dreis2003/ms-auth
   newTag: hml-51dbc89b09c3e5014d6c76a52c1e9c2856613f44
