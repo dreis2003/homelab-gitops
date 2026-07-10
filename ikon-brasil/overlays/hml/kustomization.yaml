@@ -20,4 +20,4 @@ images:
   newTag: hml-51dbc89b09c3e5014d6c76a52c1e9c2856613f44
 - name: ghcr.io/dreis2003/ms-cadastro-filiados
   newName: ghcr.io/dreis2003/ms-cadastro-filiados
-  newTag: hml-9a3065d0740add8253aa32992f5f770e2920a2f8
+  newTag: hml-be68ac3f9b02e958e996f518e9dce4578a4aa90d
