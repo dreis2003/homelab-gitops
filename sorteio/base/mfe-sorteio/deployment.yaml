@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mfe-sorteio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mfe-sorteio
+  template:
+    metadata:
+      labels:
+        app: mfe-sorteio
+    spec:
+      containers:
+        - name: mfe-sorteio
+          image: ghcr.io/dreis2003/mfe-sorteio:hml-latest
+          ports:
+            - containerPort: 80

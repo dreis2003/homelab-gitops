@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mfe-sorteio
+spec:
+  selector:
+    app: mfe-sorteio
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80

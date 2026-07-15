@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sorteio-hml-ingress
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: sorteio-hml.yakuzastudio.com.br
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: mfe-sorteio
+                port:
+                  number: 80
+    - host: api-sorteio-hml.yakuzastudio.com.br
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: ms-sorteio
+                port:
+                  number: 8080

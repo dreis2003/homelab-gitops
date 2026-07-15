@@ -1,0 +1,14 @@
+namespace: sorteio-hml
+
+resources:
+  - ../../base/ms-sorteio
+  - ../../base/mfe-sorteio
+  - ../../base/ingress-hml
+
+images:
+  - name: ghcr.io/dreis2003/ms-sorteio
+    newName: ghcr.io/dreis2003/ms-sorteio
+    newTag: hml-latest
+  - name: ghcr.io/dreis2003/mfe-sorteio
+    newName: ghcr.io/dreis2003/mfe-sorteio
+    newTag: hml-latest
