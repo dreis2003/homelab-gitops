@@ -1,14 +1,16 @@
 namespace: sorteio-hml
 
 resources:
-  - ../../base/ms-sorteio
-  - ../../base/mfe-sorteio
-  - ../../base/ingress-hml
+- ../../base/ms-sorteio
+- ../../base/mfe-sorteio
+- ../../base/ingress-hml
 
 images:
-  - name: ghcr.io/dreis2003/ms-sorteio
-    newName: ghcr.io/dreis2003/ms-sorteio
-    newTag: hml-latest
-  - name: ghcr.io/dreis2003/mfe-sorteio
-    newName: ghcr.io/dreis2003/mfe-sorteio
-    newTag: hml-latest
+- name: ghcr.io/dreis2003/mfe-sorteio
+  newName: ghcr.io/dreis2003/mfe-sorteio
+  newTag: hml-latest
+- name: ghcr.io/dreis2003/ms-sorteio
+  newName: ghcr.io/dreis2003/ms-sorteio
+  newTag: hml-b8efb237bac74b241e5e236adb52b2ee85cf935b
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
