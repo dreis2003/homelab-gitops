@@ -15,76 +15,90 @@ spec:
       containers:
         - name: ms-sorteio
           image: ghcr.io/dreis2003/ms-sorteio:hml-latest
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
           env:
             - name: SERVER_PORT
               value: "8080"
+
             - name: SPRING_PROFILES_ACTIVE
               value: "hml"
+
             - name: SPRING_DATASOURCE_URL
               valueFrom:
                 secretKeyRef:
                   name: ms-sorteio-secrets
                   key: DB_URL
+
             - name: SPRING_DATASOURCE_USERNAME
               valueFrom:
                 secretKeyRef:
                   name: ms-sorteio-secrets
                   key: DB_USERNAME
+
             - name: SPRING_DATASOURCE_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: ms-sorteio-secrets
                   key: DB_PASSWORD
-            - name: JWT_SECRET
-              valueFrom:
-                secretKeyRef:
-                  name: ms-sorteio-secrets
-                  key: JWT_SECRET
-            - name: EMAIL_HOST
-              valueFrom:
-                secretKeyRef:
-                  name: ms-sorteio-secrets
-                  key: EMAIL_HOST
-            - name: EMAIL_PORTA
-              valueFrom:
-                secretKeyRef:
-                  name: ms-sorteio-secrets
-                  key: EMAIL_PORTA
-            - name: EMAIL_USUARIO
-              valueFrom:
-                secretKeyRef:
-                  name: ms-sorteio-secrets
-                  key: EMAIL_USUARIO
-            - name: EMAIL_SENHA
-              valueFrom:
-                secretKeyRef:
-                  name: ms-sorteio-secrets
-                  key: EMAIL_SENHA
-            - name: EMAIL_REMETENTE
-              valueFrom:
-                secretKeyRef:
-                  name: ms-sorteio-secrets
-                  key: EMAIL_REMETENTE
-            - name: EMAIL_NOME_REMETENTE
-              valueFrom:
-                secretKeyRef:
-                  name: ms-sorteio-secrets
-                  key: EMAIL_NOME_REMETENTE
-            - name: FLYWAY_URL
+
+            - name: SPRING_FLYWAY_URL
               valueFrom:
                 secretKeyRef:
                   name: ms-sorteio-secrets
                   key: FLYWAY_URL
-            - name: FLYWAY_USUARIO
+
+            - name: SPRING_FLYWAY_USER
               valueFrom:
                 secretKeyRef:
                   name: ms-sorteio-secrets
                   key: FLYWAY_USUARIO
-            - name: FLYWAY_SENHA
+
+            - name: SPRING_FLYWAY_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: ms-sorteio-secrets
                   key: FLYWAY_SENHA
 
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: ms-sorteio-secrets
+                  key: JWT_SECRET
+
+            - name: EMAIL_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: ms-sorteio-secrets
+                  key: EMAIL_HOST
+
+            - name: EMAIL_PORTA
+              valueFrom:
+                secretKeyRef:
+                  name: ms-sorteio-secrets
+                  key: EMAIL_PORTA
+
+            - name: EMAIL_USUARIO
+              valueFrom:
+                secretKeyRef:
+                  name: ms-sorteio-secrets
+                  key: EMAIL_USUARIO
+
+            - name: EMAIL_SENHA
+              valueFrom:
+                secretKeyRef:
+                  name: ms-sorteio-secrets
+                  key: EMAIL_SENHA
+
+            - name: EMAIL_REMETENTE
+              valueFrom:
+                secretKeyRef:
+                  name: ms-sorteio-secrets
+                  key: EMAIL_REMETENTE
+
+            - name: EMAIL_NOME_REMETENTE
+              valueFrom:
+                secretKeyRef:
+                  name: ms-sorteio-secrets
+                  key: EMAIL_NOME_REMETENTE
