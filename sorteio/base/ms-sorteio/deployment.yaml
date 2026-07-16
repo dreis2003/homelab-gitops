@@ -22,6 +22,12 @@ spec:
             - name: SERVER_PORT
               value: "8080"
 
+            - name: TZ
+              value: "America/Sao_Paulo"
+
+            - name: JAVA_TOOL_OPTIONS
+              value: "-Duser.timezone=America/Sao_Paulo"
+
             - name: SPRING_PROFILES_ACTIVE
               value: "hml"
 
