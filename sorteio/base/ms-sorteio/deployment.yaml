@@ -72,4 +72,19 @@ spec:
                 secretKeyRef:
                   name: ms-sorteio-secrets
                   key: EMAIL_NOME_REMETENTE
+            - name: FLYWAY_URL
+              valueFrom:
+                secretKeyRef:
+                  name: ms-sorteio-secrets
+                  key: FLYWAY_URL
+            - name: FLYWAY_USUARIO
+              valueFrom:
+                secretKeyRef:
+                  name: ms-sorteio-secrets
+                  key: FLYWAY_USUARIO
+            - name: FLYWAY_SENHA
+              valueFrom:
+                secretKeyRef:
+                  name: ms-sorteio-secrets
+                  key: FLYWAY_SENHA
 
