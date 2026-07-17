@@ -1,16 +1,35 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
 namespace: sorteio-prd
 
 resources:
-- ../../base/ms-sorteio
-- ../../base/mfe-sorteio
-- ../../base/ingress-prd
+  - ../../base/ms-sorteio
+  - ../../base/mfe-sorteio
+  - ../../base/ingress-prd
 
 images:
-- name: ghcr.io/dreis2003/mfe-sorteio
-  newName: ghcr.io/dreis2003/mfe-sorteio
-  newTag: prd-005bc2d6f1c6954b08b63fe44e00b8864f41176e
-- name: ghcr.io/dreis2003/ms-sorteio
-  newName: ghcr.io/dreis2003/ms-sorteio
-  newTag: prd-7f7fe7a6ffb5d11cf7a04a6323dbdc16c35a7d65
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
+  - name: ghcr.io/dreis2003/mfe-sorteio
+    newName: ghcr.io/dreis2003/mfe-sorteio
+    newTag: prd-005bc2d6f1c6954b08b63fe44e00b8864f41176e
+  - name: ghcr.io/dreis2003/ms-sorteio
+    newName: ghcr.io/dreis2003/ms-sorteio
+    newTag: prd-7f7fe7a6ffb5d11cf7a04a6323dbdc16c35a7d65
+
+patches:
+  - target:
+      kind: Deployment
+      name: ms-sorteio
+    patch: |-
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: ms-sorteio
+      spec:
+        template:
+          spec:
+            containers:
+              - name: ms-sorteio
+                env:
+                  - name: SPRING_PROFILES_ACTIVE
+                    value: "prd"
