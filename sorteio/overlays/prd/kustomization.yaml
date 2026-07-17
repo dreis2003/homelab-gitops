@@ -11,6 +11,6 @@ images:
   newTag: prd-005bc2d6f1c6954b08b63fe44e00b8864f41176e
 - name: ghcr.io/dreis2003/ms-sorteio
   newName: ghcr.io/dreis2003/ms-sorteio
-  newTag: prd-latest
+  newTag: prd-7f7fe7a6ffb5d11cf7a04a6323dbdc16c35a7d65
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
