@@ -1,14 +1,16 @@
 namespace: sorteio-prd
 
 resources:
-  - ../../base/ms-sorteio
-  - ../../base/mfe-sorteio
-  - ../../base/ingress-prd
+- ../../base/ms-sorteio
+- ../../base/mfe-sorteio
+- ../../base/ingress-prd
 
 images:
-  - name: ghcr.io/dreis2003/ms-sorteio
-    newName: ghcr.io/dreis2003/ms-sorteio
-    newTag: prd-latest
-  - name: ghcr.io/dreis2003/mfe-sorteio
-    newName: ghcr.io/dreis2003/mfe-sorteio
-    newTag: prd-latest
+- name: ghcr.io/dreis2003/mfe-sorteio
+  newName: ghcr.io/dreis2003/mfe-sorteio
+  newTag: prd-005bc2d6f1c6954b08b63fe44e00b8864f41176e
+- name: ghcr.io/dreis2003/ms-sorteio
+  newName: ghcr.io/dreis2003/ms-sorteio
+  newTag: prd-latest
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
