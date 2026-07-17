@@ -14,7 +14,7 @@ images:
   newTag: prd-d7df0db9d3f49b88227a6785f9165b1b238b110b
 - name: ghcr.io/dreis2003/ms-sorteio
   newName: ghcr.io/dreis2003/ms-sorteio
-  newTag: prd-7f7fe7a6ffb5d11cf7a04a6323dbdc16c35a7d65
+  newTag: prd-67596854f57763cc77554689d56718a7603c9392
 
 patches:
 - patch: |-
