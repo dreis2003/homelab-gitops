@@ -11,6 +11,6 @@ images:
   newTag: hml-19c166b3b45cddef0dfab19323b01e4a6eff5c02
 - name: ghcr.io/dreis2003/ms-sorteio
   newName: ghcr.io/dreis2003/ms-sorteio
-  newTag: hml-c3229ca72a2116d2763865c26a4f7713b7e07915
+  newTag: hml-7b60bd0b94bc1f9b017675438d9134a961afacaf
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
