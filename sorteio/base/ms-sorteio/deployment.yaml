@@ -73,6 +73,12 @@ spec:
                   name: ms-sorteio-secrets
                   key: JWT_SECRET
 
+            - name: RECAPTCHA_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: ms-sorteio-secrets
+                  key: RECAPTCHA_SECRET_KEY
+
             - name: EMAIL_HOST
               valueFrom:
                 secretKeyRef:
