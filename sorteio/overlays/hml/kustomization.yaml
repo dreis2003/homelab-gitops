@@ -8,7 +8,7 @@ resources:
 images:
 - name: ghcr.io/dreis2003/mfe-sorteio
   newName: ghcr.io/dreis2003/mfe-sorteio
-  newTag: hml-7333ddb8ee96d050cc8851998df4670b52b57677
+  newTag: hml-9233aab7e5dfbe337d8585dbf385fd0e5028c533
 - name: ghcr.io/dreis2003/ms-sorteio
   newName: ghcr.io/dreis2003/ms-sorteio
   newTag: hml-f1ae68fae6e8e3e51896b6110a3c8b9243cc0023
