@@ -11,7 +11,7 @@ resources:
 images:
 - name: ghcr.io/dreis2003/mfe-sorteio
   newName: ghcr.io/dreis2003/mfe-sorteio
-  newTag: prd-e336875c47d76f44fe416e2e2a7de133692851d5
+  newTag: prd-b3891cb052effeda5bd2c6fc0401764723f61bfe
 - name: ghcr.io/dreis2003/ms-sorteio
   newName: ghcr.io/dreis2003/ms-sorteio
   newTag: prd-564084b1178d64d6d896047f69b9ebc656821f00
