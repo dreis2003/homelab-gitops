@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ykanban-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ykanban-web
+  template:
+    metadata:
+      labels:
+        app: ykanban-web
+    spec:
+      containers:
+        - name: ykanban-web
+          image: ghcr.io/dreis2003/ykanban-frontend:hml-latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "50m"
+            limits:
+              memory: "256Mi"
+              cpu: "250m"

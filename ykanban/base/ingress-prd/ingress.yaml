@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ykanban-prd-ingress
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: ykanban.yakuzastudio.com.br
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: ykanban-web
+                port:
+                  number: 80
+    - host: api-ykanban.yakuzastudio.com.br
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: ykanban-api
+                port:
+                  number: 8080
