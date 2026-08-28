@@ -8,6 +8,13 @@ spec:
     - host: ykanban-hml.yakuzastudio.com.br
       http:
         paths:
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: ykanban-api
+                port:
+                  number: 8080
           - path: /
             pathType: Prefix
             backend:
@@ -15,13 +22,3 @@ spec:
                 name: ykanban-web
                 port:
                   number: 80
-    - host: api-ykanban-hml.yakuzastudio.com.br
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: ykanban-api
-                port:
-                  number: 8080
