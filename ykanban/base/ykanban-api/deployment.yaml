@@ -15,7 +15,7 @@ spec:
       containers:
         - name: ykanban-api
           image: ghcr.io/dreis2003/ykanban-backend:hml-latest
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
           resources:
