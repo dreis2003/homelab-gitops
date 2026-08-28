@@ -15,4 +15,4 @@ images:
   newTag: hml-latest
 - name: ghcr.io/dreis2003/ykanban-frontend
   newName: ghcr.io/dreis2003/ykanban-frontend
-  newTag: hml-d838b34
+  newTag: hml-latest
