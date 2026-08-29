@@ -1,0 +1,8 @@
+# PROPOSTA - ver RELATORIO-ycommunication-gitops.md secao "RabbitMQ".
+# Nenhum overlay referencia esta pasta ainda. Para ativar em um ambiente,
+# adicione "../../base/rabbitmq" a lista de `resources:` do
+# overlays/<hml|prd>/kustomization.yaml correspondente.
+resources:
+  - deployment.yaml
+  - service.yaml
+  - pvc.yaml

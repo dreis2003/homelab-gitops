@@ -1,0 +1,16 @@
+# PROPOSTA - ver RELATORIO-ycommunication-gitops.md secao "RabbitMQ". Nao
+# referenciado em nenhum kustomization.yaml ainda.
+apiVersion: v1
+kind: Service
+metadata:
+  name: ycommunication-rabbitmq
+spec:
+  selector:
+    app: ycommunication-rabbitmq
+  ports:
+    - name: amqp
+      port: 5672
+      targetPort: 5672
+    - name: management
+      port: 15672
+      targetPort: 15672

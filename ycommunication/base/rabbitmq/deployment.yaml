@@ -1,0 +1,54 @@
+# PROPOSTA - ver RELATORIO-ycommunication-gitops.md secao "RabbitMQ".
+# Este manifest NAO esta referenciado em nenhum kustomization.yaml (nem
+# overlays/hml nem overlays/prd) e portanto NAO sera aplicado pelo ArgoCD
+# ate que o time aprove a abordagem e o inclua explicitamente na lista de
+# `resources:` do overlay desejado.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ycommunication-rabbitmq
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: ycommunication-rabbitmq
+  template:
+    metadata:
+      labels:
+        app: ycommunication-rabbitmq
+    spec:
+      containers:
+        - name: rabbitmq
+          image: rabbitmq:3-management-alpine
+          ports:
+            - containerPort: 5672
+              name: amqp
+            - containerPort: 15672
+              name: management
+          env:
+            - name: RABBITMQ_DEFAULT_USER
+              valueFrom:
+                secretKeyRef:
+                  name: ycommunication-api-secrets
+                  key: RABBITMQ_USERNAME
+            - name: RABBITMQ_DEFAULT_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: ycommunication-api-secrets
+                  key: RABBITMQ_PASSWORD
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "100m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          volumeMounts:
+            - name: data
+              mountPath: /var/lib/rabbitmq
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: ycommunication-rabbitmq-data

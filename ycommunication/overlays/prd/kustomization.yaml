@@ -1,0 +1,38 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: ycommunication-prd
+
+resources:
+  - namespace.yaml
+  - ../../base/ycommunication-api
+  - ../../base/ycommunication-web
+  - ../../base/ingress-prd
+
+images:
+  - name: ghcr.io/dreis2003/ycommunication-api
+    newName: ghcr.io/dreis2003/ycommunication-api
+    newTag: prd-latest
+  - name: ghcr.io/dreis2003/ycommunication-web
+    newName: ghcr.io/dreis2003/ycommunication-web
+    newTag: prd-latest
+
+patches:
+  - patch: |-
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: ycommunication-api
+      spec:
+        template:
+          spec:
+            containers:
+              - name: ycommunication-api
+                env:
+                  - name: SPRING_PROFILES_ACTIVE
+                    value: "prd"
+                  - name: CORS_ALLOWED_ORIGINS
+                    value: "https://ycommunication.yakuzastudio.com.br"
+    target:
+      kind: Deployment
+      name: ycommunication-api

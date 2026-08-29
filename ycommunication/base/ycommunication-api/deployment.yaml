@@ -1,0 +1,126 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ycommunication-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ycommunication-api
+  template:
+    metadata:
+      labels:
+        app: ycommunication-api
+    spec:
+      imagePullSecrets:
+        - name: ghcr-secret
+      containers:
+        - name: ycommunication-api
+          image: ghcr.io/dreis2003/ycommunication-api:hml-latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "250m"
+            limits:
+              memory: "1Gi"
+              cpu: "1000m"
+          env:
+            - name: SERVER_PORT
+              value: "8080"
+
+            - name: TZ
+              value: "America/Sao_Paulo"
+
+            - name: JAVA_TOOL_OPTIONS
+              value: "-Duser.timezone=America/Sao_Paulo"
+
+            - name: SPRING_PROFILES_ACTIVE
+              value: "hml"
+
+            - name: CORS_ALLOWED_ORIGINS
+              value: "https://ycommunication-hml.yakuzastudio.com.br"
+
+            # --- Banco de dados (PostgreSQL externo, 192.168.40.80) ---
+            - name: SPRING_DATASOURCE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: ycommunication-api-secrets
+                  key: DB_URL
+
+            - name: SPRING_DATASOURCE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: ycommunication-api-secrets
+                  key: DB_USERNAME
+
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: ycommunication-api-secrets
+                  key: DB_PASSWORD
+
+            - name: SPRING_FLYWAY_URL
+              valueFrom:
+                secretKeyRef:
+                  name: ycommunication-api-secrets
+                  key: DB_URL
+
+            - name: SPRING_FLYWAY_USER
+              valueFrom:
+                secretKeyRef:
+                  name: ycommunication-api-secrets
+                  key: DB_USERNAME
+
+            - name: SPRING_FLYWAY_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: ycommunication-api-secrets
+                  key: DB_PASSWORD
+
+            # --- JWT ---
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: ycommunication-api-secrets
+                  key: JWT_SECRET
+
+            # --- RabbitMQ (ver RELATORIO-ycommunication-gitops.md - pendente de decisao de infra) ---
+            - name: RABBITMQ_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: ycommunication-api-secrets
+                  key: RABBITMQ_HOST
+
+            - name: RABBITMQ_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: ycommunication-api-secrets
+                  key: RABBITMQ_PORT
+
+            - name: RABBITMQ_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: ycommunication-api-secrets
+                  key: RABBITMQ_USERNAME
+
+            - name: RABBITMQ_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: ycommunication-api-secrets
+                  key: RABBITMQ_PASSWORD
+
+            # --- Criptografia AES-256-GCM das credenciais de canal (YCOM-005) ---
+            - name: YCOMM_ENCRYPTION_CURRENT_KEY_VERSION
+              valueFrom:
+                secretKeyRef:
+                  name: ycommunication-api-secrets
+                  key: YCOMM_ENCRYPTION_CURRENT_KEY_VERSION
+
+            - name: YCOMM_ENCRYPTION_KEY_V1
+              valueFrom:
+                secretKeyRef:
+                  name: ycommunication-api-secrets
+                  key: YCOMM_ENCRYPTION_KEY_V1

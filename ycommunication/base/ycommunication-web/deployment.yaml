@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ycommunication-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ycommunication-web
+  template:
+    metadata:
+      labels:
+        app: ycommunication-web
+    spec:
+      imagePullSecrets:
+        - name: ghcr-secret
+      containers:
+        - name: ycommunication-web
+          image: ghcr.io/dreis2003/ycommunication-web:hml-latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "50m"
+            limits:
+              memory: "256Mi"
+              cpu: "250m"

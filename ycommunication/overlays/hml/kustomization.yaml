@@ -1,0 +1,18 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: ycommunication-hml
+
+resources:
+  - namespace.yaml
+  - ../../base/ycommunication-api
+  - ../../base/ycommunication-web
+  - ../../base/ingress-hml
+
+images:
+  - name: ghcr.io/dreis2003/ycommunication-api
+    newName: ghcr.io/dreis2003/ycommunication-api
+    newTag: hml-ed60990
+  - name: ghcr.io/dreis2003/ycommunication-web
+    newName: ghcr.io/dreis2003/ycommunication-web
+    newTag: hml-e7cd684

@@ -1,0 +1,13 @@
+# PROPOSTA - ver RELATORIO-ycommunication-gitops.md secao "RabbitMQ". Nao
+# referenciado em nenhum kustomization.yaml ainda. Ajustar storageClassName
+# conforme o que existir no cluster k8s-lab (nao verificado por este agente).
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ycommunication-rabbitmq-data
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi

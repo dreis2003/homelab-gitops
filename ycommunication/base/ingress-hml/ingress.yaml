@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ycommunication-hml-ingress
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: ycommunication-hml.yakuzastudio.com.br
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: ycommunication-web
+                port:
+                  number: 80
+    - host: api-ycommunication-hml.yakuzastudio.com.br
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: ycommunication-api
+                port:
+                  number: 8080
