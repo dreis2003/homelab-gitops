@@ -8,6 +8,7 @@ resources:
   - ../../base/ycommunication-api
   - ../../base/ycommunication-web
   - ../../base/ingress-hml
+  - ../../base/rabbitmq
 
 images:
   - name: ghcr.io/dreis2003/ycommunication-api
