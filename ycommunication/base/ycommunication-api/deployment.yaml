@@ -41,7 +41,7 @@ spec:
               value: "hml"
 
             - name: CORS_ALLOWED_ORIGINS
-              value: "https://ycommunication-hml.yakuzastudio.com.br"
+              value: "https://ycomm-hml.yakuzastudio.com.br"
 
             # --- Banco de dados (PostgreSQL externo, 192.168.40.80) ---
             - name: SPRING_DATASOURCE_URL
