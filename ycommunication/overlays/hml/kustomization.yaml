@@ -4,16 +4,16 @@ kind: Kustomization
 namespace: ycommunication-hml
 
 resources:
-  - namespace.yaml
-  - ../../base/ycommunication-api
-  - ../../base/ycommunication-web
-  - ../../base/ingress-hml
-  - ../../base/rabbitmq
+- namespace.yaml
+- ../../base/ycommunication-api
+- ../../base/ycommunication-web
+- ../../base/ingress-hml
+- ../../base/rabbitmq
 
 images:
-  - name: ghcr.io/dreis2003/ycommunication-api
-    newName: ghcr.io/dreis2003/ycommunication-api
-    newTag: hml-ed60990
-  - name: ghcr.io/dreis2003/ycommunication-web
-    newName: ghcr.io/dreis2003/ycommunication-web
-    newTag: hml-e7cd684
+- name: ghcr.io/dreis2003/ycommunication-api
+  newName: ghcr.io/dreis2003/ycommunication-api
+  newTag: hml-ed60990
+- name: ghcr.io/dreis2003/ycommunication-web
+  newName: ghcr.io/dreis2003/ycommunication-web
+  newTag: hml-a27a58c
