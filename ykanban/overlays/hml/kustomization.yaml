@@ -12,7 +12,7 @@ resources:
 images:
 - name: ghcr.io/dreis2003/ykanban-backend
   newName: ghcr.io/dreis2003/ykanban-backend
-  newTag: hml-e364b18c5e028a41345fa8f9fa15cf377bca89fa
+  newTag: hml-3644f2b8bf8f4f9278ff9f556b0630322d0af5ea
 - name: ghcr.io/dreis2003/ykanban-frontend
   newName: ghcr.io/dreis2003/ykanban-frontend
   newTag: hml-latest
