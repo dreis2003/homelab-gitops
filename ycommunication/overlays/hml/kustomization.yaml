@@ -16,4 +16,4 @@ images:
   newTag: hml-ed60990
 - name: ghcr.io/dreis2003/ycommunication-web
   newName: ghcr.io/dreis2003/ycommunication-web
-  newTag: hml-104785b
+  newTag: hml-6bf3dcb
