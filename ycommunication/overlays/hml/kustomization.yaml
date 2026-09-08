@@ -13,7 +13,7 @@ resources:
 images:
 - name: ghcr.io/dreis2003/ycommunication-api
   newName: ghcr.io/dreis2003/ycommunication-api
-  newTag: hml-9f5937b
+  newTag: hml-e4ba859
 - name: ghcr.io/dreis2003/ycommunication-web
   newName: ghcr.io/dreis2003/ycommunication-web
   newTag: hml-bfaeb3d
